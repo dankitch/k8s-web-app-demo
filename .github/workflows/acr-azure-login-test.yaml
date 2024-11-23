@@ -26,7 +26,7 @@ jobs:
       env:
         ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
         ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
-        ARM_CLIENT_ID: ${{ vars.ARC_ARM_CLIENT_ID }}
+        ARM_CLIENT_ID: ${{ vars.ACR_ARM_CLIENT_ID }}
       run: |
         echo $ARM_TENANT_ID
         echo $ACR_CLIENT_ID
@@ -35,7 +35,7 @@ jobs:
     - name: 'Az CLI login'
       uses: azure/login@v1
       with:
-        client-id: ${{ vars.ARC_ARM_CLIENT_ID }}
+        client-id: ${{ vars.ACR_ARM_CLIENT_ID }}
         tenant-id: ${{ vars.ARM_TENANT_ID }}
         subscription-id: ${{ vars.ARM_SUBSCRIPTION_ID }}
   
