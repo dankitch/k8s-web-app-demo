@@ -1,9 +1,24 @@
-variable "application_name" {
+variable "location" {
+  type    = string
+  default = "uksouth"
+}
+
+
+variable "application" {
+  type    = string
+  default = "book-with-me"
+}
+
+variable "environment" {
   type = string
 }
-variable "environment_name" {
-  type = string
+
+variable "owner" {
+  type    = string
+  default = "dank"
 }
-variable "primary_region" {
-  type = string
+
+variable "project" {
+  type    = string
+  default = "containerization"
 }
