@@ -57,4 +57,4 @@ jobs:
           -backend-config="container_name=${{ vars.BACKEND_STORAGE_CONTAINER_NAME }}" \
           -backend-config="key=${{ vars.APPLICATION_NAME }}-${{ vars.ENVIRONMENT_NAME }}"
           
-        terraform apply -auto-approve
+        terraform apply -var-file=_${{ vars.ENVIRONMENT_NAME }}.tfvars -auto-approve
