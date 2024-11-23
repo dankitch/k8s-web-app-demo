@@ -22,18 +22,15 @@ jobs:
       # Step 1: Check out code
       - name: Checkout code
         uses: actions/checkout@v3
-
-      # Step 2: Log in to Azure
-      - name: 'Az CLI login'
-        uses: azure/login@v1
+      
+      # Step 2: Login to Azure Container Registry  
+      - name: 'Build and push image'
+        uses: docker/login-action@v3
         with:
-          client-id: ${{ vars.ACR_ARM_CLIENT_ID }}
-          tenant-id: ${{ vars.ARM_TENANT_ID }}
-          subscription-id: ${{ vars.ARM_SUBSCRIPTION_ID }}
-
-      # Step 3: Build and Push Frontend Image
-      - name: Build and Push Frontend Image
-        run: |
+          registry: ${{ vars.ACR_NAME }}.azurecr.io
+          username: ${{ vars.ACR_ARM_CLIENT_ID }}
+          password: ${{ secrets.ACR_ARM_CLIENT_SECRET }}
+      - run: |
           docker build -f src/Dockerfile.frontend -t ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }} .
           docker push ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }}
 
