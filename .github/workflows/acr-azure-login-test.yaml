@@ -29,7 +29,7 @@ jobs:
         ARM_CLIENT_ID: ${{ vars.ARC_ARM_CLIENT_ID }}
       run: |
         echo $ARM_TENANT_ID
-        echo $ARM_CLIENT_ID
+        echo $ACR_CLIENT_ID
         echo $ARM_SUBSCRIPTION_ID
 
     - name: 'Az CLI login'
