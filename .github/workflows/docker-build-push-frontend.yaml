@@ -34,7 +34,7 @@ jobs:
       # Step 3: Build and Push Frontend Image
       - name: Build and Push Frontend Image
         run: |
-          docker build -f src/Dockerfile.frontend -t ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }} ./src/frontend
+          docker build -f src/Dockerfile.frontend -t ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }} .
           docker push ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }}
 
 
