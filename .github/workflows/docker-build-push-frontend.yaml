@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-   # paths:
-     # - 'src/frontend/**'
+    paths:
+      - 'src/frontend/**'
 
 permissions:
   id-token: write
@@ -14,6 +14,9 @@ permissions:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
+    environment:
+      name: "dev"
 
     steps:
       # Step 1: Check out code
@@ -32,6 +35,6 @@ jobs:
       - name: Build and Push Frontend Image
         run: |
           docker build -f src/Dockerfile.frontend -t ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }} ./src/frontend
-          docker push ${{ vars.ACR_NAME}}.azurecr.io/book-with-me-frontend:${{ github.sha }}
+          docker push ${{ vars.ACR_NAME }}.azurecr.io/book-with-me-frontend:${{ github.sha }}
 
 
