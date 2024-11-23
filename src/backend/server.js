@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const sql = require('mssql'); // Ensure you have installed mssql package
+const sql = require('mssql');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
