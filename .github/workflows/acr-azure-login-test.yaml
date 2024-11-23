@@ -35,7 +35,7 @@ jobs:
     - name: 'Az CLI login'
       uses: azure/login@v1
       with:
-        client-id: ${{ vars.TERRAFORM_ARM_CLIENT_ID }}
+        client-id: ${{ vars.ARC_ARM_CLIENT_ID }}
         tenant-id: ${{ vars.ARM_TENANT_ID }}
         subscription-id: ${{ vars.ARM_SUBSCRIPTION_ID }}
   
